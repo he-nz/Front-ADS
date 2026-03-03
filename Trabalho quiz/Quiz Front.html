@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz HTML e CSS</title>
+    <style>
+        body {
+            background-color: #c5c5c5;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .questao {
+            background-color: white;
+            padding: 15px;
+        }
+
+        p {
+            font-weight: bold;
+        }
+
+        img {
+            width: 500px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Quiz de Iniciante HTML e CSS</h1>
+    <p>Responda as perguntas abaixo:</p>
+
+    <form>
+    <label>
+        <div class="questao">
+            <p>1. Qual tag usamos para o título principal?</p>
+            <input type="radio" name="q1"> &lt;h1&gt; <br>
+            <input type="radio" name="q1"> &lt;p&gt; <br>
+            <input type="radio" name="q1"> &lt;title&gt;
+        </div>
+    </label>
+        <br>
+
+    <label>
+        <div class="questao">
+            <p>2. O que significa CSS?</p>
+            <input type="radio" name="q2"> Color Style System <br>
+            <input type="radio" name="q2"> Cascading Style Sheets <br>
+            <input type="radio" name="q2"> Creative Super Style
+        </div>
+    </label>
+
+        <br>
+    <label>
+        <div class="questao">
+            <p>3. Como mudamos a cor do texto no CSS?</p>
+            <input type="radio" name="q3"> background-color <br>
+            <input type="radio" name="q3"> text-style <br>
+            <input type="radio" name="q3"> color
+        </div>
+    </label>
+
+        <br>
+        
+    <label>
+        <div class="questao">
+            <p>4. Tem algo de errado com o codigo?</p>
+            <img src = "https://cdn1.gnarususercontent.com.br/1/1429830/e07ef6f9-61d6-45d4-bea4-b09e7a7fcdc1.png">
+        <br>
+
+        <select>
+            <option></option>
+            <option>SIM</option>
+            <option>NÃO</option>
+        </select>
+        </div>
+    </label>
+
+        <br>
+        <input type="submit" value="Enviar Respostas">
+        <input type="reset" value="Limpar tudo">
+
+    </form>
+
+    <p>Fim do Quiz</p>
+
+</body>
+</html>
