@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Pet Virtual</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
+
+    <style>
+        body {
+            background-image: url('fundo.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 20px;
+            transition: background-image 1s ease-in-out;
+        }
+        #salsicha {
+            width: 500px;
+        }
+        #Imagem {
+            display: none;
+            position: fixed;
+            width: 100vw; height: 100vh; 
+            justify-content: center;
+            align-items: center;
+        }
+
+        #Fotolinda {
+            width: 1200px;
+            height: 1000px; 
+        }
+
+        .botao {
+            background-color: #1452128f;
+            color:rgb(255, 255, 255);
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            padding: 3px 5px;
+            font-size: 8px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="absolute top-5 right-5 flex gap-2">
+        <button onclick="alimentar()" style="background-color: #09ff00; color:rgb(0, 0, 0) " class="btn btn-outline ">
+            Alimentar
+        </button>
+
+        <button id="botaoFundo" onclick="mudarCenario()" style=" background-color: #0d39c993; color:rgb(255, 255, 255)" class="btn btn-outline">
+            Mudar para Noite
+        </button>
+    </div>
+
+    <img id="salsicha" src="dog_normal.png" />
+
+<button class="botao" onclick="abrir()">JUMPSCARE</button>
+
+
+    <div id="Imagem">
+        <img id="Fotolinda" src="ferlini.png">
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
