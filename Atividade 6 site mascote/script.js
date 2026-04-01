@@ -23,11 +23,11 @@ function controlador (){
 
             console.log("tempo:",contador);
             
-            if (contador == 5){
+            if (contador == 10){
                 cria.src = estados.puto;
             }
 
-            if(contador == 10){
+            if(contador == 20){
                 cria.src = estados.morto;
                 morto = 1;
             }
