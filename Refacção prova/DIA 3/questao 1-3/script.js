@@ -1,6 +1,6 @@
 function revelar() {
     const foto = document.getElementById('avatar');
-    foto.src = 'img/_vinicius_junior.png';
+    foto.src = './img/_vinicius_junior.png';
 
     const nome = document.getElementById('Nome');
     const rank = document.getElementById('Rank');
