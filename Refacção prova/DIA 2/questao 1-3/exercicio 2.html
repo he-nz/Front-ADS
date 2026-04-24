@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupos Copa 2026</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 40px;
+        }
+
+        .grid-container {
+            display: flex; 
+            flex-direction: row; 
+            flex-wrap: nowrap; 
+            gap: 20px;
+            justify-content: center;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .item-card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            width: 280px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-top: 5px solid #3498db;
+        }
+
+        h4 { margin-top: 0; color: #2c3e50; }
+
+        ul { padding-left: 20px; }
+
+        details {
+            margin-top: 15px;
+            background-color: #e8f4fd;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        summary { font-weight: bold; cursor: pointer; }
+
+        .btn-acao {
+            margin-top: 40px;
+            padding: 12px 35px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Grupos da Copa 2026</h1>
+
+    <div id="Conteudo" class="grid-container">
+        <div class="item-card">
+            <h4>Grupo A</h4>
+            <ul>
+                <li>México</li>
+                <li>África do Sul</li>
+                <li>Coreia do Sul</li>
+                <li>República Tcheca</li>
+            </ul>
+            <details>
+                <summary>Saiba Mais</summary>
+                O jogo de abertura será México x África do Sul.
+            </details>
+        </div>
+
+        <div class="item-card">
+            <h4>Grupo B</h4>
+            <ul>
+                <li>Canadá</li>
+                <li>Suíça</li>
+                <li>Catar</li>
+                <li>Vaga Europeia</li>
+            </ul>
+            <details>
+                <summary>Saiba Mais</summary>
+                O Canadá joga em casa, fator importante de desempenho.
+            </details>
+        </div>
+
+        <div class="item-card">
+            <h4>Grupo C</h4>
+            <ul>
+                <li>Brasil</li>
+                <li>Marrocos</li>
+                <li>Haiti</li>
+                <li>Escócia</li>
+            </ul>
+            <details>
+                <summary>Saiba Mais</summary>
+                Brasil nunca perdeu para a Escócia em Copas.
+            </details>
+        </div>
+    </div>
+
+    <button class="btn-acao" onclick="proximo()">Próximo</button>
+
+    <script>
+        function proximo() {
+            const container = document.getElementById('Conteudo');
+            container.innerHTML = `
+                <div class="item-card">
+                    <h4>Grupo D</h4>
+                    <ul><li>Estados Unidos</li><li>Paraguai</li><li>Austrália</li><li>Turquia</li></ul>
+                    <details><summary>Saiba Mais</summary>EUA jogam em casa, vantagem histórica.</details>
+                </div>
+                <div class="item-card">
+                    <h4>Grupo E</h4>
+                    <ul><li>Alemanha</li><li>Equador</li><li>Costa do Marfim</li><li>Curaçao</li></ul>
+                    <details><summary>Saiba Mais</summary>Alemanha domina as fases de grupos.</details>
+                </div>
+                <div class="item-card">
+                    <h4>Grupo F</h4>
+                    <ul><li>Holanda</li><li>Japão</li><li>Tunísia</li><li>Suécia</li></ul>
+                    <details><summary>Saiba Mais</summary>Equilíbrio técnico elevado no grupo.</details>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

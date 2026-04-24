@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Jogador da Copa do Mundo</title>
+    <style> 
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .bg-copa {
+            background-image: url('img/FIFA-World-Cup-26.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container dos Cards na Horizontal */
+        #Cards {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        /* Estilo do Card (Substituindo Bootstrap) */
+        .card {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            width: 280px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        .card-img-top {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .card-body { padding: 20px; color: #333; }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .badge {
+            background-color: #f1c40f;
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .card-text { font-size: 0.95rem; line-height: 1.6; }
+
+        /* Botão Personalizado */
+        .btn-add {
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .btn-add:hover { background-color: #219150; }
+        .btn-add:disabled { background-color: #95a5a6; cursor: not-allowed; }
+
+    </style>
+</head>
+<body>
+
+    <div class="bg-copa">
+        <div id="Cards">
+            <div class="card">
+                <img src="img/_vinicius_junior.png" class="card-img-top" alt="Vini Jr">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <span>Vini Jr.</span>
+                        <span class="badge">9,5</span>
+                    </h5>
+                    <div class="card-text">
+                        <span><strong>Nascimento:</strong> 12/07/2000</span><br>
+                        <span><strong>Altura:</strong> 1,76 m</span><br>
+                        <span><strong>Posição:</strong> Atacante</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button id="btnAdicionar" onclick="add()" class="btn-add">
+            Adicionar Lucas Paquetá
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

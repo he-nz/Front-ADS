@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copa do Mundo 2026</title>
+    <style>
+        /* Questão 02 - CSS Refinado */
+        body {
+            background: #f0f4f8; /* background suave */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #2c3e50;
+            text-align: center; /* text-align */
+        }
+
+        nav {
+            background-color: #1e3799;
+            padding: 15px;
+            border-radius: 10px; /* border-radius */
+            margin-bottom: 30px;
+        }
+
+        nav a {
+            color: white; /* color */
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600; /* font-weight */
+            font-size: 1.1em;
+        }
+
+        .secao-copa {
+            background-color: #ffffff; /* background suave por seção */
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 650px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .secao-copa h2 {
+            font-size: 26px; /* font-size */
+            color: #1e3799;
+            margin-top: 0;
+            border-bottom: 2px solid #eb2f06;
+            display: inline-block;
+        }
+
+        button {
+            padding: 12px 30px;
+            background-color: #eb2f06;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        button:hover { transform: scale(1.05); background-color: #b71540; }
+
+        .img-tabela {
+            max-width: 100%;
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#organizacao">Sedes</a>
+        <a href="#formato">Formato</a>
+        <a href="#expectativas">Expectativas</a>
+    </nav>
+
+    <section id="organizacao" class="secao-copa">
+        <h2>Organização e Sedes</h2>
+        <p>A Copa do Mundo FIFA de 2026 será a primeira edição realizada em três países: Estados Unidos, Canadá e México. Essa será também a maior Copa da história em número de cidades-sede.</p>
+    </section>
+
+    <section id="formato" class="secao-copa">
+        <h2>Novo Formato</h2>
+        <p>O torneio contará com 48 seleções, em vez das tradicionais 32. As equipes serão divididas em grupos, aumentando o número total de jogos.</p>
+    </section>
+
+    <section id="expectativas" class="secao-copa">
+        <h2>Expectativas e Impacto</h2>
+        <p>A edição de 2026 promete ser uma das mais assistidas da história, com grande impacto econômico e cultural nos países-sede.</p>
+    </section>
+
+    <button onclick="mostrarTabela()">Mostrar Tabela de Jogos</button>
+    <div id="display-tabela"></div>
+
+    <script>
+        function mostrarTabela() {
+            const container = document.getElementById('display-tabela');
+            if(!document.getElementById('img-tabela-26')) {
+                const img = document.createElement('img');
+                img.src = 'img/Tabela_Jogos.png';
+                img.id = 'img-tabela-26';
+                img.className = 'img-tabela';
+                container.appendChild(img);
+            }
+        }
+    </script>
+
+</body>
+</html>
