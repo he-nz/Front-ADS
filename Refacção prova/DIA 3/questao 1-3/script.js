@@ -4,7 +4,7 @@ function add() {
     if (revelado) return; 
 
     const foto = document.getElementById('FotoJogador');
-    foto.src = 'img/_vinicius_junior.jpg';
+    foto.src = 'https://img.nsctotal.com.br/wp-content/uploads/2025/08/vini-jr-720x405.jpg';
 
     const elNome = document.getElementById('Nome');
     const elRank = document.getElementById('Rank');
