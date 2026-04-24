@@ -5,57 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Jogador da Copa do Mundo</title>
     <style> 
-        body, html { height: 100%; margin: 0; }
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
         .bg-copa {
             background-image: url('img/FIFA-World-Cup-26.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
+
+        /* Estilo do Card sem Bootstrap */
         .card {
-            backdrop-filter: blur(8px);
             background-color: rgba(255, 255, 255, 0.9);
-            border: none;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            width: 350px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             overflow: hidden;
+            text-align: left;
+            transition: all 0.3s ease;
         }
-        .card-img-top { height: 300px; object-fit: cover; }
+
+        .card-img-top {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            margin: 0 0 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Estilo dos Placeholders */
+        .placeholder {
+            display: inline-block;
+            background: #ccc;
+            height: 1em;
+            border-radius: 4px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        .badge {
+            background-color: #6c757d;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .badge-sucesso { background-color: #28a745; }
+
+        .card-text {
+            color: #444;
+            line-height: 1.8;
+        }
+
+        /* Botão de Ação */
         .btn-reveal {
-            margin-top: 20px;
-            padding: 10px 30px;
+            margin-top: 25px;
+            padding: 12px 40px;
+            background-color: #007bff;
+            color: white;
+            border: none;
             border-radius: 50px;
+            cursor: pointer;
             font-weight: bold;
+            font-size: 1.1rem;
+            transition: background 0.3s;
         }
+
+        .btn-reveal:hover { background-color: #0056b3; }
+        .btn-reveal:disabled { background-color: #6c757d; cursor: not-allowed; }
     </style>
 </head>
 <body>
 
     <div class="bg-copa">
-        <div class="d-flex flex-column align-items-center">       
-            <div class="card" style="width: 18rem;">
-                <img src="./img/img_.svg" id="avatar" class="card-img-top" alt="Placeholder">
+        <div class="card">
+            <img src="img/img_.svg" id="FotoJogador" class="card-img-top" alt="Placeholder Copa">
             
-                <div class="card-body"> 
-                    <h5 id="Nome" class="card-title placeholder-glow">
-                        <span class="placeholder col-8"></span>
-                        <span id="Rank" class="badge text-bg-secondary">-</span>
-                    </h5>
-                    <p class="card-text placeholder-glow">
-                        <span id="Data_Nas" class="placeholder col-10"></span><br>
-                        <span id="Alutra" class="placeholder col-6"></span><br>
-                        <span id="Posição " class="placeholder col-9"></span><br>
-                    </p>
+            <div class="card-body"> 
+                <h5 id="Nome" class="card-title">
+                    <span class="placeholder" style="width: 150px;"></span>
+                    <span id="Rank" class="badge">-</span>
+                </h5>
+                <div class="card-text">
+                    <span id="Data_Nas" class="placeholder" style="width: 200px;"></span><br>
+                    <span id="Alutra" class="placeholder" style="width: 120px;"></span><br>
+                    <span id="Posição " class="placeholder" style="width: 180px;"></span>
                 </div>
             </div>
-            
-            <button onclick="revelar()" class="btn btn-primary btn-reveal shadow">
-                Revelar Jogador
-            </button>
         </div>
+
+        <button id="btnAcao" onclick="add()" class="btn-reveal">Revelar Jogador</button>
     </div>
 
     <script src="script.js"></script>
