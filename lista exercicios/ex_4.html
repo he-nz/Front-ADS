@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>lista ex 4</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .todo-app {
+        text-align: center;
+        max-width: 700px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .parcela{
+        width: 70px;
+    }
+    #resultado{
+        text-align: center;
+        max-width: 700px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top:10px;
+    }
+</style>
+</head>
+
+<body>
+    <div class="todo-app">
+        <h2>calcular juros</h2>
+        <input type="number" id="valor" placeholder="valor" oninput="calcularJuros()">
+        <select id="cartao" onchange="calcularJuros()">
+            <option value="Visa">Visa</option>
+            <option value="Master">Master</option>
+            <option value="Elo">Elo</option>
+        </select>
+        <select id="parcelas" onchange="calcularJuros()"></select>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        var selectParcelas = document.getElementById("parcelas");
+        var campoBandeira = document.getElementById("cartao");
+        var campoValor = document.getElementById("valor");
+        var divResultado = document.getElementById("resultado");
+
+        for (var i = 1; i <= 12; i++) {
+            var opcao = document.createElement("option");
+            opcao.value = i;
+            opcao.textContent = i + "x";
+            selectParcelas.appendChild(opcao);
+        }
+
+        function calcularJuros() {
+            var valor = Number(campoValor.value);
+            var numeroParcelas = Number(selectParcelas.value);
+            var bandeira = campoBandeira.value;
+
+            var taxaBandeira = 0;
+
+            if (bandeira == "Visa") {
+                taxaBandeira = valor * 0.02;
+            }
+            if (bandeira == "Master") {
+                taxaBandeira = valor * 0.0182;
+            }
+            if (bandeira == "Elo") {
+                taxaBandeira = valor * 0.03;
+            }
+
+            var juros = valor * 0.0035 * numeroParcelas;
+            var taxaMensal = 12.50 * numeroParcelas;
+            var totalGeral = valor + taxaBandeira + juros + taxaMensal;
+            var valorParcela = totalGeral / numeroParcelas;
+
+            divResultado.innerHTML = "valor total " + totalGeral.toFixed(2) + "R$<br>" +
+                                     "valor das parcelas " + valorParcela.toFixed(2) + "R$<br>" +
+                                     "valor juros " + juros.toFixed(2) + "R$<br>" +
+                                     "valor taxa " + taxaMensal.toFixed(2) + "R$<br>" +
+                                     "valor taxa bandeira " + taxaBandeira.toFixed(2) + "R$";
+        }
+    </script>
+</body>
+</html>

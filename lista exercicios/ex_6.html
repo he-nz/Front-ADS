@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>lista ex 6</title>
+<style>
+     body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+ .todo-app{
+    text-align: center;
+    max-width: 700px;
+    border: 1px solid  #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.result{
+    text-align: center;
+    max-width: 700px;
+    border: 1px solid  #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+</style>
+</head>
+
+<body>
+<div class="todo-app">
+    <h2>Pacote festa</h2>
+    <input id="number" placeholder="quantidade de pessoas" onchange="calcularOrcamento()">
+    <select id="orca" onchange="calcularOrcamento()">
+        <option value="standard">Standard</option>
+        <option value="premium">Premium</option>
+        <option value="infinity">Infinity Deluxe</option>
+    </select>
+    <div id="resul"></div>
+</div>
+
+<script>
+    var campoQuantidade = document.getElementById("number");
+    var campoPacote = document.getElementById("orca");
+    var divResul = document.getElementById("resul");
+
+    function calcularOrcamento() {
+        var quantidade = Number(campoQuantidade.value);
+        var pacote = campoPacote.value;
+        var precoPorPessoa = 0;
+
+        if (pacote == "standard") {
+            precoPorPessoa = 50;
+        }
+        if (pacote == "premium") {
+            precoPorPessoa = 80;
+        }
+        if (pacote == "infinity") {
+            precoPorPessoa = 120;
+        }
+
+        var subtotal = precoPorPessoa * quantidade;
+        var taxaServico = subtotal * 0.1;
+        var totalComTaxa = subtotal + taxaServico;
+
+        if (quantidade >= 100) {
+            var desconto = totalComTaxa * 0.05;
+            totalComTaxa = totalComTaxa - desconto;
+        }
+
+        divResul.classList.add("result");
+        divResul.innerHTML = "o total ficou " + totalComTaxa.toFixed(2);
+    }
+</script>
+</body>
+</html>

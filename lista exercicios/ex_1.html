@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>lista ex 1</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .todo-app {
+        text-align: center;
+        max-width: 700px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    button {
+        border: solid 1px gray;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0);
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 5px;
+        width: 100px;
+    }
+    button:hover {
+        background-color: gray;
+        cursor: pointer;
+    }
+    .true{
+    color: green;
+    }
+    .false{
+    color: red;
+    }
+</style>
+</head>
+
+<body>
+    <div class="todo-app">
+        <h2>verificador cpf</h2>
+        <input type="number" id="valor" placeholder="valor"><br><br>
+        <button onclick="verificarCPF()">Verificar</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        var campoCPF = document.getElementById("valor");
+        var divResultado = document.getElementById("resultado");
+
+        function verificarCPF() {
+            var numeroCPF = campoCPF.value;
+
+            if (numeroCPF == "") {
+                alert("digite seu cpf");
+                return;
+            }
+
+            var somaUm = 0;
+            var mult = 10;
+
+            for (var i = 0; i < 9; i++) {
+                somaUm = somaUm + Number(numeroCPF[i]) * mult;
+                mult = mult - 1;
+            }
+
+            var restoUm = somaUm % 11;
+            var primeiroDigito = 0;
+
+            if (restoUm != 0 && restoUm != 1) {
+                primeiroDigito = 11 - restoUm;
+            }
+
+            var somaDois = 0;
+            var mult2 = 11;
+
+            for (var j = 0; j < 10; j++) {
+                somaDois = somaDois + Number(numeroCPF[j]) * mult2;
+                mult2 = mult2 - 1;
+            }
+
+            var restoDois = somaDois % 11;
+            var segundoDigito = 0;
+
+            if (restoDois != 0 && restoDois != 1) {
+                segundoDigito = 11 - restoDois;
+            }
+
+            var classes = document.getElementById("resultado").classList;
+
+            if (primeiroDigito == numeroCPF[9] && segundoDigito == numeroCPF[10]) {
+                divResultado.innerHTML = "<br>Valido";
+                classes.remove("false");
+                classes.add("true");
+            } else {
+                divResultado.innerHTML = "<br>Invalido";
+                classes.remove("true");
+                classes.add("false");
+            }
+        }
+    </script>
+</body>
+</html>
