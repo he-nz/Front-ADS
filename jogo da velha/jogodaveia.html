@@ -1,0 +1,110 @@
+
+<div style="text-align: center; padding: 30px; font-family: Arial, sans-serif;">
+
+  <h2 id="status">Vez do X</h2>
+
+  <table id="tabuleiro" style="margin: 20px auto; border-collapse: collapse;">
+    <tr>
+      <td onclick="jogar(0)" style="width:100px; height:100px; border: 3px solid black; font-size:48px; text-align:center; cursor:pointer;"></td>
+      <td onclick="jogar(1)" style="width:100px; height:100px; border: 3px solid black; font-size:48px; text-align:center; cursor:pointer;"></td>
+      <td onclick="jogar(2)" style="width:100px; height:100px; border: 3px solid black; font-size:48px; text-align:center; cursor:pointer;"></td>
+    </tr>
+    <tr>
+      <td onclick="jogar(3)" style="width:100px; height:100px; border: 3px solid black; font-size:48px; text-align:center; cursor:pointer;"></td>
+      <td onclick="jogar(4)" style="width:100px; height:100px; border: 3px solid black; font-size:48px; text-align:center; cursor:pointer;"></td>
+      <td onclick="jogar(5)" style="width:100px; height:100px; border: 3px solid black; font-size:48px; text-align:center; cursor:pointer;"></td>
+    </tr>
+    <tr>
+      <td onclick="jogar(6)" style="width:100px; height:100px; border: 3px solid black; font-size:48px; text-align:center; cursor:pointer;"></td>
+      <td onclick="jogar(7)" style="width:100px; height:100px; border: 3px solid black; font-size:48px; text-align:center; cursor:pointer;"></td>
+      <td onclick="jogar(8)" style="width:100px; height:100px; border: 3px solid black; font-size:48px; text-align:center; cursor:pointer;"></td>
+    </tr>
+  </table>
+
+  <button onclick="reiniciar()" style="padding: 8px 20px; font-size: 16px; cursor: pointer;">Reiniciar</button>
+
+</div>
+
+<script>
+  var celulas = document.querySelectorAll("#tabuleiro td");
+  var status = document.getElementById("status");
+
+  var jogador = "X";
+  var tabuleiro = ["", "", "", "", "", "", "", "", ""];
+  var fimDeJogo = false;
+
+  var combinacoes = [
+    [0,1,2], [3,4,5], [6,7,8],
+    [0,3,6], [1,4,7], [2,5,8],
+    [0,4,8], [2,4,6]
+  ];
+
+  function jogar(pos) {
+    if (fimDeJogo || tabuleiro[pos] != "") {
+      return;
+    }
+
+    tabuleiro[pos] = jogador;
+    celulas[pos].textContent = jogador;
+
+    if (jogador == "X") {
+      celulas[pos].style.color = "blue";
+    } else {
+      celulas[pos].style.color = "red";
+    }
+
+    var vencedor = verificarVencedor();
+
+    if (vencedor != "") {
+      status.textContent = "Jogador " + vencedor + " ganhou!";
+      fimDeJogo = true;
+      return;
+    }
+
+    var empate = true;
+    for (var i = 0; i < tabuleiro.length; i++) {
+      if (tabuleiro[i] == "") {
+        empate = false;
+      }
+    }
+
+    if (empate) {
+      status.textContent = "Empate!";
+      fimDeJogo = true;
+      return;
+    }
+
+    if (jogador == "X") {
+      jogador = "O";
+    } else {
+      jogador = "X";
+    }
+
+    status.textContent = "Vez do " + jogador;
+  }
+
+  function verificarVencedor() {
+    for (var i = 0; i < combinacoes.length; i++) {
+      var a = combinacoes[i][0];
+      var b = combinacoes[i][1];
+      var c = combinacoes[i][2];
+
+      if (tabuleiro[a] != "" && tabuleiro[a] == tabuleiro[b] && tabuleiro[b] == tabuleiro[c]) {
+        return tabuleiro[a];
+      }
+    }
+    return "";
+  }
+
+  function reiniciar() {
+    tabuleiro = ["", "", "", "", "", "", "", "", ""];
+    jogador = "X";
+    fimDeJogo = false;
+    status.textContent = "Vez do X";
+
+    for (var i = 0; i < celulas.length; i++) {
+      celulas[i].textContent = "";
+      celulas[i].style.color = "black";
+    }
+  }
+</script>
